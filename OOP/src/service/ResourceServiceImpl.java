@@ -14,10 +14,11 @@ public class ResourceServiceImpl implements ResourceService {
 
     @Override
     public void add(Resource resource) {
-        if (isAvailable(resource))
+        if (isAvailable(resource)) {
             System.out.println(resource + " is exist");
-        else
+        } else {
             resources.put(resource.getSerialNumber(), resource);
+        }
     }
 
     @Override
@@ -27,10 +28,12 @@ public class ResourceServiceImpl implements ResourceService {
 
     @Override
     public void update(Resource resource1, Resource resource2) {
-        if (!isAvailable(resource1))
+        if (!isAvailable(resource1)) {
             System.out.println(resource1 + " Not Founded");
-        else
+        } else {
+            delete(resource1);
             resources.put(resource2.getSerialNumber(), resource2);
+        }
     }
 
     @Override
