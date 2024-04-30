@@ -17,7 +17,7 @@ public class AppController {
 
         Resource book = new Book("The book", "The auth", 1950);
         Resource mag = new Magazine("The mag", "The auth", 2002);
-
+        
         service.add(book);
 
         service.update(book, mag);
