@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Edit Product</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body class="bg-light text-dark">
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" th:href="@{/products}">Product List</a>
+        </nav>
+
+        <div class="container mt-5">
+            <h1 class="text-center">Edit Product</h1>
+            <form th:action="@{/products/edit/{id}(id=${product.id})}" th:object="${product}" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" th:field="*{name}" required>
+                </div>
+                <div class="form-group">
+                    <label for="brand">Brand</label>
+                    <input type="text" class="form-control" id="brand" th:field="*{brand}" required>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <input type="text" class="form-control" id="category" th:field="*{category}" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" class="form-control" id="price" th:field="*{price}" step="0.01" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Update Product</button>
+                <a th:href="@{/products}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+
+    </body>
+</html>
