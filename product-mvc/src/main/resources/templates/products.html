@@ -36,20 +36,6 @@
                     </tr>
                 </tbody>
             </table>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item" th:classappend="${productPage.hasPrevious()} ? 'enabled' : 'disabled'">
-                        <a class="page-link" th:href="@{/products(page=${productPage.number - 1}, size=${productPage.size})}">Previous</a>
-                    </li>
-                    <li class="page-item" th:each="i : ${#numbers.sequence(1, productPage.totalPages)}"
-                        th:classappend="${i - 1 == productPage.number} ? 'active'">
-                        <a class="page-link" th:text="${i}" th:href="@{/products(page=${i - 1}, size=${productPage.size})}">1</a>
-                    </li>
-                    <li class="page-item" th:classappend="${productPage.hasNext()} ? 'enabled' : 'disabled'">
-                        <a class="page-link" th:href="@{/products(page=${productPage.number + 1}, size=${productPage.size})}">Next</a>
-                    </li>
-                </ul>
-            </nav>
         </div>
     </body>
 </html>
